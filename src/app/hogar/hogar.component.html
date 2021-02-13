@@ -1,0 +1,25 @@
+<div class = "container color-dark">
+    <div class = "col">
+        <p>Añadir a la cubeta de items!</p>
+    </div>
+    <div class = "col">
+        <p>Tu cubeta! ({{contadorItems}})</p>
+    </div>
+</div>
+<div class = "container color-light" [@objetivos]="objetivos.length">
+    <div class = "col">
+        <p class = "sm">Utiliza el siguiente form para añadir un nuevo objetivo</p>
+
+        <form>
+            <input type="text" class="txt" name="item" placeholder="Objetivo de vida..." [(ngModel)]="textoObjetivo">
+            
+            <input type="submit" class="btn" value = "{{btnTexto}}" (click)= "addItem()">
+        </form>
+    </div>
+    <div class = "col">
+        <p class = "life-container" *ngFor = "let objetivo of objetivos; let i = index" (click)="eliminarItem(i)">
+            {{objetivo}}    
+        </p>
+    </div>
+</div>
+
